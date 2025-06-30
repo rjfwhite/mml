@@ -171,6 +171,12 @@ export class ThreeJSModeInternal {
       statusUI,
     };
     this.update(this.formIteration);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(10, 10, 10);
+    directionalLight.target.position.set(0, 0, 0);
+    directionalLight.castShadow = true;
+    graphicsAdapter.getThreeScene().add(directionalLight);
   }
 
   update(formIteration: FormIteration) {
